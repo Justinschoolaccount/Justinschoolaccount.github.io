@@ -1,11 +1,54 @@
-```mermaid
 erDiagram
+
 PRODUCT {
+    product_id PK
+    name
+    description
+    price
+    quantity_in_stock
 }
+
 CUSTOMER {
+    customer_id PK
+    name
+    address
+    phone_number
+    email
 }
+
 SALE {
+    sale_id PK
+    date
+    total_amount
+    payment_method
+    product_id FK REFERENCES PRODUCT(product_id)
+    customer_id FK REFERENCES CUSTOMER(customer_id)
 }
+
 INVENTORY {
+    inventory_id PK
+    quantity
+    location
+    product_id FK REFERENCES PRODUCT(product_id)
 }
-```
+
+PRODUCT --|| SALE : contains
+CUSTOMER --|| SALE : places
+INVENTORY --|| PRODUCT : stores
+
+PRODUCT: Represents the items sold.
+CUSTOMER: Represents the individuals or entities purchasing products.
+SALE: Represents a transaction where a product is sold to a customer.
+INVENTORY: Represents the stock of products available for sale.
+PRODUCT SALE: A product can be involved in sales.
+CUSTOMER SALE: A customer can place many sales.
+INVENTORY PRODUCT: Inventory stores multiple products.
+PRODUCT SALE Relationship
+This relationship is used for tracking the sales of each product, analyzing product popularity as well as managing inventory levels.
+It secures stock levels based on sales trends.
+CUSTOMER SALE Relationship
+ A customer can place multiple sales. This relationship is essential for understanding customer purchasing behavior, building customer loyalty as well as providing personalized recommendations.
+ It allows for tracking customer interactions, preferences, and purchase history.
+INVENTORY PRODUCT Relationship
+Inventory stores many products. This relationship is needed for managing stock levels, preventing stockouts, and optimizing inventory costs.
+ IT ensures efficient procurement and distribution of products.
