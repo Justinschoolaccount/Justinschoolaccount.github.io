@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Personal Introduction</title>
+  <style>
+Body{
+background-color: #1F445F;
+}
+h1 {
+Color: #2CA7C8;
+}
+p {
+Color: #C5E7DE;
+}
+</style>
+</head>
+  <body>
+    <h1>My name is Justin</h1>
+      <p>I am currently in school for cyber security.My favorite sport is hockey, and my favorite team is the Carolina Hurricanes. During my free time I like to watch movies and tv Shows.
+      </p>
+  </body>
+</html>
